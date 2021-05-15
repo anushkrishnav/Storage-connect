@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+export default function Login() {
   const classes = useStyles();
 
   return (
@@ -115,9 +115,9 @@ export default function SignInSide() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+                <Link href="/Signup" variant="body2">
+                  Don't have an account? Sign Up
+                </Link> 
               </Grid>
             </Grid>
             <Box mt={5}>

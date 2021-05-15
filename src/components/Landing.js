@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
 import '../Landing.css';
+import werewolf from './imgs/werewolf.png'
 
 export default function Landing() {
   return (
@@ -11,16 +12,18 @@ export default function Landing() {
 	  </div>
 		<section>
 			<div className="header">
-				<h2 className="logo">Your Logo</h2>
+				<h2 className="logo">
+					<img className="logl" src={werewolf} alt="Logo" />
+				</h2>
 				<ul>
 					<li>
 						<Link href="/" className="active">Home</Link>
 					</li>
 					<li>
-						<Link href="/NewWarehouse">Warehouses</Link>
+						<Link href="/WarehouseList">Warehouses</Link>
 					</li>
 					<li>
-						<Link href="/">Profile</Link>
+						<Link href="/Profile">Profile</Link>
 					</li>
                     <li>
 						<Link href="/Signup">Sign Up</Link>

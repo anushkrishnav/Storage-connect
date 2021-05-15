@@ -41,22 +41,22 @@ export default function NewWarehouse() {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
 
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     const warehouseRef = firebase.database().ref('warehouses');
-//     const warehouse = {
-//       name: name,
-//       location: location,
-//     }
-//     warehouseRef.push(warehouse);
-//     setName('');
-//     setLocation('');
-//   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const warehouseRef = firebase.database().ref('warehouses');
+    const warehouse = {
+      name: name,
+      location: location,
+    }
+    warehouseRef.push(warehouse);
+    setName('');
+    setLocation('');
+  }
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={() => handleSubmit()}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField

@@ -44,10 +44,14 @@ export default function NewWarehouse() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    db.collection('warehouses').doc(id).get()
+        .then(snapshot => setUserDetails(snapshot.data()))
+    console.log(snapshot)
     //const warehouseRef = firebase.database().ref();
     const warehouse = {
       name: name,
       location: location,
+      rent : rent,
     }
     console.log(warehouse)
     db.collection("warehouses").add(warehouse);

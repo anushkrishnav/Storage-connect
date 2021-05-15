@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 // import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { db } from './firebase';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -43,12 +44,14 @@ export default function NewWarehouse() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const warehouseRef = firebase.database().ref('warehouses');
+    //const warehouseRef = firebase.database().ref();
     const warehouse = {
       name: name,
       location: location,
     }
-    warehouseRef.push(warehouse);
+    console.log(warehouse)
+    db.collection("warehouses").add(warehouse);
+    //warehouseRef.push(warehouse);
     setName('');
     setLocation('');
   }
@@ -56,7 +59,7 @@ export default function NewWarehouse() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <form className={classes.form} onSubmit={() => handleSubmit()}>
+      <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField

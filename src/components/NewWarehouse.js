@@ -47,7 +47,6 @@ export default function NewWarehouse() {
       height: height,
       width: width,
     }
-    console.log(warehouse)
     var coll = db.collection("warehouses").doc("details")
     var add = coll.set(warehouse);
     

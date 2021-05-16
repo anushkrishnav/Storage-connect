@@ -37,6 +37,22 @@ function useGetData() {
 export default function WarehouseList() {
   const classes = useStyles();
   const [warehouse, setWarehouse] = useState([]);
+  const [location, setLocation] = useState('');
+  const [name, setName] = useState();
+  var coll = db.collection("warehouses").doc("details")
+  coll.get().then((doc) => {
+      if (doc.exists) {
+        var data =  doc.data()
+        setName(data.name)
+        setLocation(data.location)
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    }
+  );
 
   useEffect (() => {
     const warehouseRef = firebase.database().ref('warehouse');
@@ -58,24 +74,12 @@ export default function WarehouseList() {
     });
   }, []);
 
-  var coll = db.collection("warehouses").doc("details")
-    coll.get().then((doc) => {
-      if (doc.exists) {
-        var data =  doc.data()
-        console.log(data)
-      } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    }).catch((error) => {
-      console.log("Error getting document:", error);
-    }
-  );
+
 
   function useCreateCards() {
     const data = useGetData();
     const cards = data.map(() => {
-      <WarehouseInfo name={data.name} location={data.location} info="what" />
+      <WarehouseInfo name={name} location={location} info="what" />
     });
     return cards;
   }
@@ -85,10 +89,7 @@ export default function WarehouseList() {
       <h1>Available Warehouses</h1>
       <Link href="/NewWarehouse" className={classes.AddNew}>Add New WareHouse</Link>
       <div className={classes.WarehouseList}>
-        <WarehouseInfo name="yeet" location="hello" info="what" />
-        <WarehouseInfo name="2" location="hello" info="what" />
-        <WarehouseInfo name="3" location="hello" info="what" />
-        <WarehouseInfo name="4" location="hello" info="what" />
+        <WarehouseInfo name={name} location={location} info="what" />
         {useCreateCards()}
       </div>
     </>

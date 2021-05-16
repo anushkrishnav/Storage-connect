@@ -48,8 +48,10 @@ export default function NewWarehouse() {
       width: width,
     }
     console.log(warehouse)
-    var coll = db.collection("warehouses")
-    var add = coll.add(warehouse);
+    var coll = db.collection("warehouses").doc("details")
+    var add = coll.set(warehouse);
+    
+
     
     //warehouseRef.push(warehouse);
     setName('');

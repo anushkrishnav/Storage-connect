@@ -49,6 +49,7 @@ export default function WarehouseList() {
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
+        setName("No warehouse availbale")
       }
     }).catch((error) => {
       console.log("Error getting document:", error);
@@ -71,7 +72,7 @@ export default function WarehouseList() {
       <h1>Available Warehouses</h1>
       <Link href="/NewWarehouse" className={classes.AddNew}>Add New WareHouse</Link>
       <div className={classes.WarehouseList}>
-        <WarehouseInfo name={name} location={location} info="what" />
+        <WarehouseInfo name={name} location={location} info={rent} />
         {useCreateCards()}
       </div>
     </>

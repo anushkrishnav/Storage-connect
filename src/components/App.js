@@ -6,11 +6,13 @@ import Landing from "./Landing";
 import WarehouseList from "./WarehouseList";
 import Profile from "./Profile";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from './Navbar';
 // import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <Router>
+      <NavBar></NavBar>
       <Switch>
         <Route path="/Signup"><Signup /></Route>
         <Route path="/Login"><Login /></Route>

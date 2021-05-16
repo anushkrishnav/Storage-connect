@@ -1,117 +1,210 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+// import Box from '@material-ui/core/Box';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+// import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import { db } from './firebase';
 
 const useStyles = makeStyles((theme) => ({
-    card: {
-        boxShadow: '0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06)',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        minWidth: '0',
-        wordWrap: 'break-word',
-        backgroundColor: '#fff',
-        backgroundClip: 'border-box',
-        border: '4px solid rgba(0,0,0,.125)',
-        borderRadius: '.25rem',
-    },
-
-    cardBody: {
-        flex: '1 1 auto',
-        minHeight: '1px',
-        padding: '1rem',
-    },
-
-    container:{
-        alignItems:'center',
-        justifyContent:'center',
-        marginTop: '50px',
-    },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
-function Profile() {
+export default function NewWarehouse() {
   const classes = useStyles();
-  
-  return (
-    <Container className={classes.container}>
-    <div class="container">
-      <div className={classes.mainBody} padding="15px">
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <Card className={classes.card} class="card mt-3">
-                <CardContent className={classes.cardBody}>
-                  <div class="d-flex flex-column align-items-center text-center">
-                      <Typography component="h1" variant="h5">
-                                Company Name
-                      </Typography>
-                      <br></br>
-                      <Button type="submit" variant="contained" color="primary">Edit Info</Button>
-                   
-                  </div>
-                </CardContent>
-              </Card>
-              <br></br>
-              <Card class="card mt-3" className={classes.card} >
-                 <List component="nav">
-                  <ListItem button>
-                    <ListItemText primary="Website" />
-                    <span class="text-secondary">companywebsite.com</span>
-                  </ListItem>
-                  <Divider />
-                  <ListItem button divider>
-                    <ListItemText primary="Email" />
-                    <span class="text-secondary">email@gmail</span>
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="Phone" />
-                    <span class="text-secondary">Street, City, State</span>
-                  </ListItem>
-                  <Divider light />
-                  <ListItem button>
-                    <ListItemText primary="Owner" />
-                    <span class="text-secondary">owner name</span>
-                  </ListItem>
-                </List>
-              </Card>
-            </div>
+  const [location, setLocation] = useState(null);
+  const [name, setName] = useState(null); 
+  const [Age, setRent] = useState();
+  const [length, setLength] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
 
-            <div class="col-md-8">
-             
-              <List component="nav">
-                  <ListItem button>
-                    <ListItemText primary="Warehouse 1" />
-                    <span class="text-secondary">Address</span>
-                  </ListItem>
-                  <Divider />
-                  <ListItem button divider>
-                    <ListItemText primary="Warehouse 2" />
-                    <span class="text-secondary">Address</span>
-                  </ListItem>
-                  <ListItem button>
-                    <ListItemText primary="Warehouse 3" />
-                    <span class="text-secondary">Address</span>
-                  </ListItem>
-                  <Divider light />
-                  <ListItem button>
-                    <ListItemText primary="Warehouse 4" />
-                    <span class="text-secondary">Address</span>
-                  </ListItem>
-                </List>
-            </div>
-          </div>
-        </div>
-    </div>
+  function handleSubmit(e) {
+    e.preventDefault();
+    //const warehouseRef = firebase.database().ref();
+    const Persons = {
+      name: name,
+      location: location,
+      Age : Age,
+      lenght: length,
+      height: height,
+      width: width,
+    }
+    console.log(Persons)
+    var coll = db.collection("Profiles")
+    var add = coll.add(Persons);
+    
+    //warehouseRef.push(Persons);
+    setName('');
+    setLocation('');
+    setRent('');
+    setLength('');
+    setHeight('');
+    setWidth('');
+  }
+
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <form className={classes.form} onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                autoComplete="location"
+                name="location"
+                variant="outlined"
+                required
+                fullWidth
+                id="location"
+                label="Location"
+                autoFocus
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="Age"
+                label="Age"
+                name="Age"
+                autoComplete="Age"
+                value={Age}
+                onChange={(e) => setRent(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                autoComplete="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Submit
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+            </Grid>
+          </Grid>
+        </form>
     </Container>
   );
-}
+  // return (
+  //   <>
+  //   <div className="p-5 lg:pt-40 container mx-auto relative">
+  //     <h1>Add New Warehouse Information</h1>
+  //     <form className="p-5 contact-form">
+  //       <div className="col-8 form-group mx-auto">
+  //         <label for="title" className="block">Location: 
+  //         <input
+  //           type="text"
+  //           name="location"
+  //           value={location}
+  //           onChange={(e) => setLocation(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
 
-export default Profile;
+  //         <label for="space"> Amount of available space: 
+  //         <input
+  //           type="text"
+  //           name="space"
+  //           value={space}
+  //           onChange={(e) => setSpace(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
+
+  //         <label for="name"> Name: 
+  //         <input
+  //           type="text"
+  //           name="name"
+  //           value={name}
+  //           onChange={(e) => setName(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
+
+  //         <label for="rate"> Rate:
+  //           <input
+  //           type="number"
+  //           name="rate"
+  //           value={rate}
+  //           onChange={(e) => setRate(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
+
+  //         <label for="length"> Length:
+  //           <input
+  //           type="text"
+  //           name="length"
+  //           value={length}
+  //           onChange={(e) => setLength(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
+
+  //         <label for="height"> Height:
+  //           <input
+  //           type="text"
+  //           name="height"
+  //           value={height}
+  //           onChange={(e) => setHeight(e.target.value)}
+  //         />
+  //         </label>0
+  //         <br />
+
+  //         <label for="width"> Width:
+  //           <input
+  //           type="text"
+  //           name="width"
+  //           value={width}
+  //           onChange={(e) => setWidth(e.target.value)}
+  //         />
+  //         </label>
+  //         <br />
+          
+  //         <input type="submit" value="Submit" className="btn btn-info bg-blue-200 border"/>
+  //       </div>
+  //     </form>
+  //     </div>
+  //   </>
+  // );
+}

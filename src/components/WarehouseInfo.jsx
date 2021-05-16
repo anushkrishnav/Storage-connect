@@ -54,13 +54,13 @@ export default function WarehouseInfo({ name, location, info }) {
       <h2 id="simple-modal-title" className="text-center" style={{marginBottom:"10px"}}>More Info</h2>
       <Divider/>
       <Typography variant="h5" component="h2" style={{marginTop:"5px"}}>
-        {info}
+        Rent : USD {info}
       </Typography>
       <Typography variant="h5" component="h2">
-        WarehouseName
+        Owner name: {name}
       </Typography>
       <Typography variant="h5" component="h2">
-        WarehouseName
+        warehouse Location: {location}
       </Typography>
     </div>
   );

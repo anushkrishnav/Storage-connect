@@ -49,12 +49,19 @@ export default function NewWarehouse() {
       name: name,
       location: location,
       rent : rent,
+      lenght: length,
+      height: height,
+      width: width,
     }
     console.log(warehouse)
     db.collection("warehouses").add(warehouse);
     //warehouseRef.push(warehouse);
     setName('');
     setLocation('');
+    setRent('');
+    setLength('');
+    setHeight('');
+    setWidth('');
   }
 
   return (
@@ -226,7 +233,7 @@ export default function NewWarehouse() {
   //           value={height}
   //           onChange={(e) => setHeight(e.target.value)}
   //         />
-  //         </label>
+  //         </label>0
   //         <br />
 
   //         <label for="width"> Width:

@@ -36,14 +36,15 @@ function useGetData() {
 
 export default function WarehouseList() {
   const classes = useStyles();
-  const [warehouse, setWarehouse] = useState([]);
   const [location, setLocation] = useState('');
   const [name, setName] = useState();
+  const [rent, setRent] = useState();
   var coll = db.collection("warehouses").doc("details")
   coll.get().then((doc) => {
       if (doc.exists) {
         var data =  doc.data()
         setName(data.name)
+        setRent(data.rent)
         setLocation(data.location)
       } else {
         // doc.data() will be undefined in this case
@@ -54,32 +55,13 @@ export default function WarehouseList() {
     }
   );
 
-  useEffect (() => {
-    const warehouseRef = firebase.database().ref('warehouse');
-    warehouseRef.on('value', (snapshot) => {
-      let warehouses = snapshot.val();
-      let newState = [];
-      for (let warehouse in warehouses) {
-        newState.push({
-          id: warehouse,
-          name: warehouses[warehouse].name,
-          location: warehouses[warehouse].location,
-          rent: warehouses[warehouse].rent,
-          length: warehouses[warehouse].lenght,
-          width: warehouses[warehouse].width,
-          height: warehouses[warehouse].height,
-        });
-      }
-      setWarehouse(newState);
-    });
-  }, []);
 
 
 
   function useCreateCards() {
     const data = useGetData();
     const cards = data.map(() => {
-      <WarehouseInfo name={name} location={location} info="what" />
+      <WarehouseInfo name={name} location={location} info={rent} />
     });
     return cards;
   }

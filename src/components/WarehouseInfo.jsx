@@ -44,13 +44,13 @@ export default function WarehouseInfo({ name, location, info }) {
     <div className={classes.paper}>
       <h2 id="simple-modal-title" className="text-center">More Info</h2>
       <Typography variant="h5" component="h2">
-        {info}
+        Rent : USD {info}
       </Typography>
       <Typography variant="h5" component="h2">
-        WarehouseName
+        Owner name: {name}
       </Typography>
       <Typography variant="h5" component="h2">
-        WarehouseName
+        warehouse Location: {location}
       </Typography>
     </div>
   );

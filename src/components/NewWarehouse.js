@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-// import Box from '@material-ui/core/Box';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-// import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { db } from './firebase';
@@ -172,86 +166,4 @@ export default function NewWarehouse() {
         </form>
     </Container>
   );
-  // return (
-  //   <>
-  //   <div className="p-5 lg:pt-40 container mx-auto relative">
-  //     <h1>Add New Warehouse Information</h1>
-  //     <form className="p-5 contact-form">
-  //       <div className="col-8 form-group mx-auto">
-  //         <label for="title" className="block">Location: 
-  //         <input
-  //           type="text"
-  //           name="location"
-  //           value={location}
-  //           onChange={(e) => setLocation(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-
-  //         <label for="space"> Amount of available space: 
-  //         <input
-  //           type="text"
-  //           name="space"
-  //           value={space}
-  //           onChange={(e) => setSpace(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-
-  //         <label for="name"> Name: 
-  //         <input
-  //           type="text"
-  //           name="name"
-  //           value={name}
-  //           onChange={(e) => setName(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-
-  //         <label for="rate"> Rate:
-  //           <input
-  //           type="number"
-  //           name="rate"
-  //           value={rate}
-  //           onChange={(e) => setRate(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-
-  //         <label for="length"> Length:
-  //           <input
-  //           type="text"
-  //           name="length"
-  //           value={length}
-  //           onChange={(e) => setLength(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-
-  //         <label for="height"> Height:
-  //           <input
-  //           type="text"
-  //           name="height"
-  //           value={height}
-  //           onChange={(e) => setHeight(e.target.value)}
-  //         />
-  //         </label>0
-  //         <br />
-
-  //         <label for="width"> Width:
-  //           <input
-  //           type="text"
-  //           name="width"
-  //           value={width}
-  //           onChange={(e) => setWidth(e.target.value)}
-  //         />
-  //         </label>
-  //         <br />
-          
-  //         <input type="submit" value="Submit" className="btn btn-info bg-blue-200 border"/>
-  //       </div>
-  //     </form>
-  //     </div>
-  //   </>
-  // );
 }

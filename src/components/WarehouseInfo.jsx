@@ -16,19 +16,19 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
   paper: {
-    position: 'absolute',
-    width: '20%',
-    height: '20%',
+    position: "absolute",
+    width: "50%",
+    height: "50%",
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    top: '40%',
-    left: '40%',
+    top: "20%",
+    left: "25%",
   },
 }));
 
-export default function WarehouseInfo() {
+export default function WarehouseInfo({ name, location, info }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -42,10 +42,16 @@ export default function WarehouseInfo() {
 
   const body = (
     <div className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
+      <h2 id="simple-modal-title" className="text-center">More Info</h2>
+      <Typography variant="h5" component="h2">
+        {info}
+      </Typography>
+      <Typography variant="h5" component="h2">
+        WarehouseName
+      </Typography>
+      <Typography variant="h5" component="h2">
+        WarehouseName
+      </Typography>
     </div>
   );
 
@@ -53,10 +59,10 @@ export default function WarehouseInfo() {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography variant="h5" component="h2">
-          WarehouseName
+          {name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Location
+          {location}
         </Typography>
       </CardContent>
       <CardActions>

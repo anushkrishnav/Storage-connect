@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NewWarehouse() {
   const classes = useStyles();
-  const [location, setLocation] = useState(null);
-  const [name, setName] = useState(null); 
+  const [location, setLocation] = useState('');
+  const [name, setName] = useState(''); 
   const [rent, setRent] = useState();
   const [length, setLength] = useState(0);
   const [height, setHeight] = useState(0);

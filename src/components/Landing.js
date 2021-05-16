@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
 import '../Landing.css';
-import werewolf from './imgs/werewolf.png'
 
 export default function Landing() {
   return (
@@ -10,37 +9,8 @@ export default function Landing() {
 			<div className="layer"></div>
 			<div className="layer"></div>
 	  </div>
-		<section>
-			<div className="header">
-				<h2 className="logo">
-					<img className="logl" src={werewolf} alt="Logo" />
-				</h2>
-				<ul>
-					<li>
-						<Link href="/" className="active">Home</Link>
-					</li>
-					<li>
-						<Link href="/WarehouseList">Warehouses</Link>
-					</li>
-					<li>
-						<Link href="/Profile">Profile</Link>
-					</li>
-                    <li>
-						<Link href="/Signup">Sign Up</Link>
-					</li>
-					{/* <li>
-						<Link href="#">Our Work</Link>
-					</li>
-					<li>
-						<Link href="#">Portfolio</Link>
-					</li>
-					<li>
-						<Link href="#">Contact</Link>
-					</li> */}
-				</ul>
-			</div>
 			<div class="bannerText">
-				<h2>Think Creative</h2><br></br>
+				<h2>WereHouse</h2><br></br>
 				<h3>And Make Innovative Design</h3>
 				<p>Lorem ipsum carrots, enhanced rebates, but they do occaecat
                                 labor and in pain, and vitality, so that at some important things to. Over the years, I will come,
@@ -50,7 +20,7 @@ export default function Landing() {
                                 excepteur are to blame for those services that is soft minds to abandon efforts. </p>
 				<Link href="/">Read More</Link>
 			</div>
-			<img src="bulb.jpg" class="bulb" alt="**"></img>
+			{/* <img src="bulb.jpg" class="bulb" alt="**"></img> */}
 			  {/*<ul class="sci">
 				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -60,7 +30,6 @@ export default function Landing() {
 			  			  */}
 			<div class="element1"></div>
 			<div class="element2"></div>
-		</section>
     </div>
   )
 }

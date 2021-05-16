@@ -1,18 +1,15 @@
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import PhoneIcon from '@material-ui/icons/Phone';
-import LanguageIcon from '@material-ui/icons/Language';
-import EmailIcon from '@material-ui/icons/Email';
+// import Box from '@material-ui/core/Box';
+// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import BusinessIcon from '@material-ui/icons/Business';
 import PersonIcon from '@material-ui/icons/Person';
+import EmailIcon from '@material-ui/icons/Email';
+import LanguageIcon from '@material-ui/icons/Language';
+import PhoneIcon from '@material-ui/icons/Phone';
+import {Container,ListItem,List,ListItemText,Divider,Typography,Button} from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -46,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Profile() {
+export default function NewWarehouse() {
   const classes = useStyles();
   
   return (
@@ -106,15 +103,16 @@ function Profile() {
                     <span class="text-lg">Address</span>
                   </ListItem>
                   <Divider />
-                  <ListItem button divider>
+                  <ListItem button>
                     <ListItemText primary={<Typography variant="h5">Warehouse 2</Typography>}/>
                     <span class="text-lg">Address</span>
                   </ListItem>
+                  <Divider />
                   <ListItem button>
                     <ListItemText primary={<Typography variant="h5">Warehouse 3</Typography>}/>
                     <span class="text-lg">Address</span>
                   </ListItem>
-                  <Divider light />
+                  <Divider />
                   <ListItem button>
                     <ListItemText primary={<Typography variant="h5">Warehouse 4</Typography>}/>
                     <span class="text-lg">Address</span>
@@ -127,5 +125,3 @@ function Profile() {
     </Container>
   );
 }
-
-export default Profile;

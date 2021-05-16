@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <Router>
-        <Navbar/>
+        <Navbar></Navbar>
       <Switch>
         <Route path="/Signup"><Signup /></Route>
         <Route path="/Login"><Login /></Route>

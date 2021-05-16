@@ -11,12 +11,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div>
     <Router>
-      <div>
         <Navbar/>
-      </div>
-      <div>
       <Switch>
         <Route path="/Signup"><Signup /></Route>
         <Route path="/Login"><Login /></Route>
@@ -25,9 +21,7 @@ function App() {
         <Route path="/Profile"><Profile /></Route>
         <Route path="/"><Landing /></Route>
       </Switch>
-      </div>
     </Router>
-    </div>
 
   )
 }

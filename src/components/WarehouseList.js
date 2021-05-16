@@ -17,9 +17,9 @@ export default function WarehouseList() {
 
   return (
     <>
-      <h1>Available Warehouses</h1>
-      <div style={{ display: "flex" }}>
-        <Link href="/NewWarehouse" className="btn btn-info bg-blue-200 border" style={{ marginLeft: "auto" }}>Add New WareHouse</Link>
+      <h1 style={{paddingLeft:"10%", paddingTop:"15px"}}>Available Warehouses</h1>
+      <div style={{ display: "flex", paddingRight:"5%"}}>
+        <Link href="/NewWarehouse" className="btn btn-info bg-blue-200 border" style={{marginLeft: "auto", padding:"15px"}}>Add New WareHouse</Link>
       </div>
       <div className={classes.WarehouseList}>
         <WarehouseInfo />

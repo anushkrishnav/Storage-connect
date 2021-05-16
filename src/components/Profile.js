@@ -1,5 +1,3 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -10,6 +8,11 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import PhoneIcon from '@material-ui/icons/Phone';
+import LanguageIcon from '@material-ui/icons/Language';
+import EmailIcon from '@material-ui/icons/Email';
+import BusinessIcon from '@material-ui/icons/Business';
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -21,20 +24,25 @@ const useStyles = makeStyles((theme) => ({
         wordWrap: 'break-word',
         backgroundColor: '#fff',
         backgroundClip: 'border-box',
-        border: '4px solid rgba(0,0,0,.125)',
+        border: '3px solid rgba(0,0,0,.125)',
         borderRadius: '.25rem',
+        marginBottom: '20px',
     },
 
     cardBody: {
         flex: '1 1 auto',
         minHeight: '1px',
-        padding: '1rem',
+        padding: '2px',
     },
 
     container:{
         alignItems:'center',
         justifyContent:'center',
         marginTop: '50px',
+    },
+
+    listItemText:{
+        fontSize:'3rem',
     },
 }));
 
@@ -47,10 +55,10 @@ function Profile() {
       <div className={classes.mainBody} padding="15px">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
-              <Card className={classes.card} class="card mt-3">
+              <Card className={classes.card} >
                 <CardContent className={classes.cardBody}>
                   <div class="d-flex flex-column align-items-center text-center">
-                      <Typography component="h1" variant="h5">
+                      <Typography component="h1" variant="h4" style={{marginTop:"25px", marginBottom:"20px"}}>
                                 Company Name
                       </Typography>
                       <br></br>
@@ -59,26 +67,32 @@ function Profile() {
                   </div>
                 </CardContent>
               </Card>
-              <br></br>
-              <Card class="card mt-3" className={classes.card} >
+              <Card className={classes.card} >
                  <List component="nav">
                   <ListItem button>
-                    <ListItemText primary="Website" />
-                    <span class="text-secondary">companywebsite.com</span>
+                    <ListItemText primary={<Typography variant="h5"><LanguageIcon style={{fontSize:"15px"}}/> Website</Typography>}/>
+                    <span class="text-lg" >companywebsite.com</span>
+                    
                   </ListItem>
                   <Divider />
-                  <ListItem button divider>
-                    <ListItemText primary="Email" />
-                    <span class="text-secondary">email@gmail</span>
-                  </ListItem>
                   <ListItem button>
-                    <ListItemText primary="Phone" />
-                    <span class="text-secondary">Street, City, State</span>
+                    <ListItemText primary={<Typography variant="h5"><EmailIcon style={{fontSize:"15px"}}/> Email</Typography>}/>
+                    <span class="text-lg">email@gmail</span>
                   </ListItem>
-                  <Divider light />
+                  <Divider />
                   <ListItem button>
-                    <ListItemText primary="Owner" />
-                    <span class="text-secondary">owner name</span>
+                    <ListItemText primary={<Typography variant="h5"><PhoneIcon style={{fontSize:"15px"}}/> Phone</Typography>}/>
+                    <span class="text-lg">(111) 111-1111</span>
+                  </ListItem>
+                  <Divider />
+                  <ListItem button>
+                    <ListItemText primary={<Typography variant="h5"><BusinessIcon style={{fontSize:"15px"}}/> Address</Typography>}/>
+                    <span class="text-lg">Street, City, State</span>
+                  </ListItem>
+                  <Divider />
+                  <ListItem button>
+                    <ListItemText primary={<Typography variant="h5"><PersonIcon style={{fontSize:"15px"}}/> Owner</Typography>}/>
+                    <span class="text-lg">owner name</span>
                   </ListItem>
                 </List>
               </Card>
@@ -88,22 +102,22 @@ function Profile() {
              
               <List component="nav">
                   <ListItem button>
-                    <ListItemText primary="Warehouse 1" />
-                    <span class="text-secondary">Address</span>
+                    <ListItemText primary={<Typography variant="h5">Warehouse 1</Typography>}/>
+                    <span class="text-lg">Address</span>
                   </ListItem>
                   <Divider />
                   <ListItem button divider>
-                    <ListItemText primary="Warehouse 2" />
-                    <span class="text-secondary">Address</span>
+                    <ListItemText primary={<Typography variant="h5">Warehouse 2</Typography>}/>
+                    <span class="text-lg">Address</span>
                   </ListItem>
                   <ListItem button>
-                    <ListItemText primary="Warehouse 3" />
-                    <span class="text-secondary">Address</span>
+                    <ListItemText primary={<Typography variant="h5">Warehouse 3</Typography>}/>
+                    <span class="text-lg">Address</span>
                   </ListItem>
                   <Divider light />
                   <ListItem button>
-                    <ListItemText primary="Warehouse 4" />
-                    <span class="text-secondary">Address</span>
+                    <ListItemText primary={<Typography variant="h5">Warehouse 4</Typography>}/>
+                    <span class="text-lg">Address</span>
                   </ListItem>
                 </List>
             </div>

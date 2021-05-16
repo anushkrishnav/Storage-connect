@@ -5,12 +5,18 @@ import NewWarehouse from "./NewWarehouse";
 import Landing from "./Landing";
 import WarehouseList from "./WarehouseList";
 import Profile from "./Profile";
+import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { Container } from 'react-bootstrap';
 
 function App() {
   return (
+    <div>
     <Router>
+      <div>
+        <Navbar/>
+      </div>
+      <div>
       <Switch>
         <Route path="/Signup"><Signup /></Route>
         <Route path="/Login"><Login /></Route>
@@ -19,8 +25,9 @@ function App() {
         <Route path="/Profile"><Profile /></Route>
         <Route path="/"><Landing /></Route>
       </Switch>
+      </div>
     </Router>
-    
+    </div>
 
   )
 }

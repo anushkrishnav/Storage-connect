@@ -48,7 +48,7 @@ export default function NewWarehouse() {
       width: width,
     }
     var coll = db.collection("warehouses").doc("details")
-    var add = coll.set(warehouse);
+    coll.set(warehouse);
     
     //warehouseRef.push(warehouse);
     setName('');

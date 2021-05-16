@@ -11,13 +11,8 @@ export default function Landing() {
 	  </div>
 			<div class="bannerText">
 				<h2>WereHouse</h2><br></br>
-				<h3>And Make Innovative Design</h3>
-				<p>Lorem ipsum carrots, enhanced rebates, but they do occaecat
-                                labor and in pain, and vitality, so that at some important things to. Over the years, I will come,
-                                aliquip out of her the advantage of exercise, so that stimulus efforts if the school district who has nostrud
-                                products. Duis has been criticized in the pleasure of the want to be a pain in the cupidatat
-                                cillum produces no resultant et dolore magna flee. Excepteur blinds are not cupidatat
-                                excepteur are to blame for those services that is soft minds to abandon efforts. </p>
+				<h3>Finding the Space you need</h3>
+				<p>Powered by community and awesome neighbours around you</p>
 				<Link href="/">Read More</Link>
 			</div>
 			{/* <img src="bulb.jpg" class="bulb" alt="**"></img> */}
